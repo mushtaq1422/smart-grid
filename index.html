@@ -1,0 +1,13 @@
+<div class="card">
+  <h2>Simulation Control</h2>
+  <button onclick="startSimulation()">Start Meter Simulation</button>
+  <div id="simulationStatus">Status: Not running</div>
+</div>
+
+<script>
+  async function startSimulation() {
+    const response = await fetch('/api/simulator/start');
+    const result = await response.json();
+    document.getElementById('simulationStatus').textContent = 'Status: ' + result.status;
+  }
+</script>
